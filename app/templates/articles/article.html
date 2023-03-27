@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/article.css')}}">
+  
+
+  
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{ super() }}
+<main>
+    
+
+    <section id="articles">
+        <article>
+            <h4>{{slug}}:{{articles.title}} </h4>
+            <img src="{{ url_for('static', filename=articles.thumbnail) }}">
+            <p>{{articles.content}}</p>
+        </article>
+        
+    </section>
+   
+
+</main>
+ 
+{% endblock %}

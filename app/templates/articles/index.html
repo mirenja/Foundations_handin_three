@@ -1,0 +1,39 @@
+<!--  -->
+
+{% extends 'base.html' %}
+{% block head %}
+  {{ super() }}
+  
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{ super() }}
+<main>
+    <h1>Travel Blog</h1>
+    <ul id="articles">
+        {% for article in articles %}
+        <li >
+            <h3><a href="{{ url_for('Articles.article', slug= article.slug) }}">{{article.slug}}</a>
+            <h4>{{article.title}}</h4>
+            <img src="{{ url_for('static', filename=article.thumbnail) }}">
+            <p>{{article.content}}</p>
+            
+        </li>
+        
+        
+        {% endfor %}
+
+    </ul>
+
+
+
+</main>
+ 
+{% endblock %}
+
+
+
+
+<!--  -->
