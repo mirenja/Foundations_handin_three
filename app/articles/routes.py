@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template,redirect,url_for,send_file
-from .models import Article
+from .models import Articles
 
 blueprint = Blueprint('Articles', __name__)
 
 
 @blueprint.route('/')
 def index():
-    all_articles = Article.query.all()
+    all_articles = Articles.query.all()
     return render_template('articles/index.html', articles = all_articles)
 
 # the article function is a view function in the Articles blueprint,
@@ -15,5 +15,5 @@ def index():
 
 @blueprint.route('/<slug>')
 def article(slug):
-  final_article = Article.query.filter_by(slug=slug).first()
+  final_article = Articles.query.filter_by(slug=slug).first()
   return render_template('articles/article.html', articles=final_article, slug=slug)

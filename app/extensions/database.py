@@ -3,3 +3,10 @@ from flask_migrate import Migrate
 
 db = SQLAlchemy()
 migrate = Migrate()
+
+class CRUDMixing():
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+        return self
