@@ -9,4 +9,4 @@ def client():
     with app.app_context():
         yield app.test_client()
 #within the context of the applicatio do the following.
-#yielf functions as return but we can still run some code after its done running
+#yield functions as return but we can still run some code after its done running
