@@ -6,10 +6,11 @@ from flask_migrate import upgrade
 
 @pytest.fixture
 def client():
-    environ['DATABASE_URL'] = 'sqlite://'
-    app =  create_app()
-    with app.app_context():
-        upgrade()
-        yield app.test_client()
+  environ['DATABASE_URL'] = 'sqlite://'
+  app = create_app()
+
+  with app.app_context():
+    upgrade()
+    yield app.test_client()
 #within the context of the applicatio do the following.
 #yield functions as return but we can still run some code after its done running
