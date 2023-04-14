@@ -11,7 +11,12 @@
 {% block body %}
 {{ super() }}
 <main>
+  <div>
     <h1>Otherwise!!!</h1>
+    <a href="{{ url_for('posts.get_posts') }}">New Article</a>
+
+  </div>
+    
     <ul id="articles">
         {% for article in articles_pagination.items %}
         <li >

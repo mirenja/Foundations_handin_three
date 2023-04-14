@@ -1,12 +1,17 @@
+* {
+  font-family: sans-serif;
+  color:#063631;
+}
+
 h1{
-    font-family: 'Roboto', sans-serif;
+   
     display:flex;
     text-align: center;
+    font-family: 'Merriweather', serif;
+
     
 }
-* {
-    color:#063631;
-}
+
 header{
     background-color:#063631;
     list-style:none;
