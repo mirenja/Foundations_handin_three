@@ -1,5 +1,5 @@
 from app.app import create_app
-from app.articles.models import Article
+from app.articles.models import Articles
 from app.extensions.database import db
 
 if __name__ == '__main__':
@@ -14,9 +14,9 @@ article_info = {
 
 for slug, article in article_info.items():
   
-  new_article = Article(slug = slug, title = article['title'] ,thumbnail = article['thumbnail'], content = article['content'])
+  new_article = Articles(slug = slug, title = article['title'] ,thumbnail = article['thumbnail'], content = article['content'])
   db.session.add(new_article)
 
 db.session.commit()
 
-#remember to swap  have the authorid in the article table.
+

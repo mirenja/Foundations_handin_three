@@ -13,7 +13,7 @@
 <main>
     <h1>Travel Blog</h1>
     <ul id="articles">
-        {% for article in articles %}
+        {% for article in articles_pagination.items %}
         <li >
             <h3><a href="{{ url_for('Articles.article', slug= article.slug) }}">{{article.slug}}</a>
             <h4>{{article.title}}</h4>
@@ -30,6 +30,19 @@
 
 
 </main>
+<nav>
+    {% if articles_pagination.prev_num %}
+      <a href="{{ url_for('Articles.index', page=articles_pagination.prev_num) }}">Previous Page</a>
+    {% else %}
+      <span>Previous Page</span>
+    {% endif %}
+    <span> - </span>
+    {% if articles_pagination.next_num %}
+      <a href="{{ url_for('Articles.index', page=articles_pagination.next_num) }}">Next Page</a>
+    {% else %}
+      <span>Next Page</span>
+    {% endif %}
+  </nav>
  
 {% endblock %}
 

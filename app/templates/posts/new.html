@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles | Draft{% endblock %}
+
+√title = db.Column(db.String(80))
+city = db.Column(db.String(80))
+content = db.Column(db.Text())
+thumbnail = db.Column(db.String(80))
+
+{% block body %}
+  <h3>Draft</h3>
+
+  <form method="post">
+    <h2>Your Post:</h2>
+    <div>
+        <input type="text" name="city" id="city" placeholder="City..">
+      </div>
+    <div>
+      <textarea type="text" name="title" id="title" rows="1" cols="30"> Title"</textarea>
+    </div>
+
+    <div>
+        <textarea name="thumbnail" id="thumbnail" rows="1" cols="40">
+        Imagelink:https://www.myimage.com
+         </textarea>
+    </div>
+    <div>
+        <textarea name="content" rows="50" cols="70">Tell us your story...</textarea>
+    </div>
+    <input type="submit" value="Publish">
+
+  </form>
+  
+
+  
+{% endblock %}

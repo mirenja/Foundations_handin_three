@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,redirect,url_for,send_file
+from flask import Blueprint, render_template,redirect,url_for,send_file,request,current_app
 from .models import Articles
 
 blueprint = Blueprint('Articles', __name__)
@@ -6,8 +6,12 @@ blueprint = Blueprint('Articles', __name__)
 
 @blueprint.route('/')
 def index():
-    all_articles = Articles.query.all()
-    return render_template('articles/index.html', articles = all_articles)
+    page_number = request.args.get('page',1, type=int)
+    articles_pagination= Articles.query.paginate(page= page_number, per_page = current_app.config['POSTS_PER_PAGE'])
+
+
+    # all_articles = Articles.query.all()
+    return render_template('articles/index.html', articles_pagination = articles_pagination)
 
 # the article function is a view function in the Articles blueprint,
 # blueprint = Blueprint('Articles', __name__),which takes a slug parameter,
