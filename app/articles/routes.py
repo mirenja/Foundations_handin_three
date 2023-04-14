@@ -3,6 +3,13 @@ from .models import Articles
 
 blueprint = Blueprint('articles', __name__)
 
+@blueprint.route('/run-seed')
+def run_seed():
+  if not Articles.query.filter_by(slug='Berlin').first():
+    import app.scripts.seed
+    return 'Database seed completed!'
+  else:
+    return 'Nothing to run.'
 
 @blueprint.route('/')
 def index():
