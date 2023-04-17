@@ -27,4 +27,4 @@ def index():
 # @blueprint.route('/<slug>')
 # def article(slug):
 #   final_article = Articles.query.filter_by(slug=slug).first()
-#   return render_template('articles/article.html', articles=final_article, slug=slug)
+#   return render_template('articles/show.html', articles=final_article, slug=slug)
