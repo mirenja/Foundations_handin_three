@@ -8,8 +8,7 @@ class Authors(db.Model, CRUDMixing):
   name = db.Column(db.String(128))
   email= db.Column(db.String(80))
   password = db.Column(db.String(80))
-  articles = db.relationship('Articles',backref='articles', uselist=False, lazy=True)
-
+  articles = db.relationship('Articles',backref='author', uselist=False, lazy=True)
 
 
 
@@ -22,7 +21,11 @@ class Articles(db.Model,CRUDMixing):
     content = db.Column(db.Text())
     thumbnail = db.Column(db.String(80))
     created_at =db.Column(db.DateTime, default=datetime.utcnow())
-    author_id = db.Column(db.Integer, db.ForeignKey('authors.id'))
+    author_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
+
+# class ArticlesAuthor(db.model, CRUDMixing):
+#    authors_id = db.Column(db.Integer, db.ForeignKey('authors.id'))
+
    
 
 

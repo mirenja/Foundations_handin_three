@@ -1,5 +1,5 @@
 from app.app import create_app
-from app.articles.models import Articles
+from app.articles.models import Articles,Authors
 from app.extensions.database import db
 
 if __name__ == '__main__':
@@ -13,8 +13,11 @@ article_info = {
 }
 
 for slug, article in article_info.items():
+  author = Authors(name=article['author'])
+  db.session.add(author)
+  db.session.commit()
   
-  new_article = Articles(slug = slug, title = article['title'] ,thumbnail = article['thumbnail'], content = article['content'])
+  new_article = Articles(slug = slug, title = article['title'] ,thumbnail = article['thumbnail'], content = article['content'], author= author)
   db.session.add(new_article)
 
 db.session.commit()
