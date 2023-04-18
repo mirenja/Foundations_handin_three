@@ -21,7 +21,14 @@
         {% for article in articles_pagination.items %}
         <li >
             <h3><a href="{{ url_for('articles.index', slug= article.slug) }}">{{article.slug}}</a>
-            <h4>{{article.title}}</h4>
+             <div>
+              <h4>{{article.title}}</h4>
+              <button>
+                <a href="{{url_for('posts.get_posts')}}">Edit</a>
+                </button>
+
+            </div>
+            
             <img src="{{ url_for('static', filename=article.thumbnail) }}">
             <p>{{article.content}}</p>
             

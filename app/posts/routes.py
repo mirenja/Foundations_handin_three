@@ -13,3 +13,4 @@ def post_posts():
   create_post(request.form)
   
   return render_template('posts/new.html')
+
