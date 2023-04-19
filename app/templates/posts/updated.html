@@ -10,7 +10,7 @@ thumbnail = db.Column(db.String(80))
 {% block body %}
   <h3>Draft</h3>
 
-  <form method="post| patch">
+  <form method="patch">
     <h2>Your Post:</h2>
     <div>
       <input type="text" name="name" id="name" placeholder="Name..">
@@ -19,13 +19,8 @@ thumbnail = db.Column(db.String(80))
     <div>
         <input type="text" name="city" id="city" placeholder="City..">
       </div>
-    
     <div>
-      {% if edited_article %}
-        <textarea type="text" name="title" id="title" rows="1" cols="30" >{{edited_article.title}}</textarea>
-      {% else %}
-        <textarea type="text" name="title" id="title" rows="1" cols="30"> without variable</textarea>
-      {% endif %}
+      <textarea type="text" name="title" id="title" rows="1" cols="30"> Title"</textarea>
     </div>
 
     <div>

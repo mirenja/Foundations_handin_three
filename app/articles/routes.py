@@ -16,9 +16,13 @@ def index():
     page_number = request.args.get('page',1, type=int)
     articles_pagination= Articles.query.paginate(page= page_number, per_page = current_app.config['POSTS_PER_PAGE'])
 
-
-    # all_articles = Articles.query.all()
     return render_template('articles/index.html', articles_pagination = articles_pagination)
+
+@blueprint.route('/<slug>')
+def show(slug): 
+  final_article = Articles.query.filter_by(slug=slug).first()
+  return render_template('articles/show.html', articles=final_article, slug=slug)
+
 
 # the article function is a view function in the Articles blueprint,
 # blueprint = Blueprint('Articles', __name__),which takes a slug parameter,

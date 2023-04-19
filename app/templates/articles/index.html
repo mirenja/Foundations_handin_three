@@ -20,12 +20,10 @@
     <ul id="articles">
         {% for article in articles_pagination.items %}
         <li >
-            <h3><a href="{{ url_for('articles.index', slug= article.slug) }}">{{article.slug}}</a>
+            <h3><a href="{{ url_for('articles.show', slug= article.slug) }}">{{article.slug}}</a></h3>
              <div>
               <h4>{{article.title}}</h4>
-              <button>
-                <a href="{{url_for('posts.get_posts')}}">Edit</a>
-                </button>
+
 
             </div>
             

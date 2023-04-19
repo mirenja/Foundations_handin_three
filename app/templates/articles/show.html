@@ -20,9 +20,14 @@
             <h4>{{slug}}:{{articles.title}} </h4>
             <img src="{{ url_for('static', filename=articles.thumbnail) }}">
             <p>{{articles.content}}</p>
+            <button>
+                <a href="{{url_for('posts.patch_posts', slug = slug)}}">Edit</a>
+            </button>
         </article>
         
     </section>
+<!-- reasoning behind it, we are getting the slug from the initial index page,we return articles_pagination whic are the articles in that page plus thier sliug,
+on the show page we have the slug for the individual article , we pass this in the url for the form but for the patching route,#we identify the specific <article>using this slug, hopefully</article> -->
    
 
 </main>

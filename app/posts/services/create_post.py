@@ -24,3 +24,6 @@ def create_post(form_data):
     )
     
   article.save()
+
+  
+
