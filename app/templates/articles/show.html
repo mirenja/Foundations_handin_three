@@ -21,7 +21,7 @@
             <img src="{{ url_for('static', filename=articles.thumbnail) }}">
             <p>{{articles.content}}</p>
             <button>
-                <a href="{{url_for('posts.patch_posts', slug = slug)}}">Edit</a>
+                <a href="{{url_for('posts.post_posts', slug = slug)}}">Edit</a>
             </button>
         </article>
         

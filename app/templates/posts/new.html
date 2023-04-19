@@ -1,44 +1,67 @@
 {% extends 'base.html' %}
-
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/article.css')}}">
+  
+{% endblock %}
 {% block title %}Articles | Draft{% endblock %}
 
-√title = db.Column(db.String(80))
-city = db.Column(db.String(80))
-content = db.Column(db.Text())
-thumbnail = db.Column(db.String(80))
+
 
 {% block body %}
-  <h3>Draft</h3>
-
-  <form method="post| patch">
-    <h2>Your Post:</h2>
-    <div>
-      <input type="text" name="name" id="name" placeholder="Name..">
-    </div>
+{{ super() }}
+  
+{% if edited_article %}
+<p>The name and city cannot be edited!</p>
+<form method="post">
+  <h2>Your Post:</h2>
   <div>
-    <div>
-        <input type="text" name="city" id="city" placeholder="City..">
-      </div>
-    
-    <div>
-      {% if edited_article %}
-        <textarea type="text" name="title" id="title" rows="1" cols="30" >{{edited_article.title}}</textarea>
-      {% else %}
-        <textarea type="text" name="title" id="title" rows="1" cols="30"> without variable</textarea>
-      {% endif %}
+    <input type="text" name="name" id="name" placeholder="Name..">
+  </div>
+<div>
+  <div>
+      <input type="text" name="city" id="city" placeholder="City..">
     </div>
+  
+  <div>
+    <textarea type="text" name="title" id="title" rows="1" cols="30" >{{edited_article.title}}</textarea>
+  </div>
 
-    <div>
-      <label for="thumbnail">Thumbnail</label><br>
-      <input type="file" name="thumbnail" id="thumbnail" >
+  <div>
+    <label for="thumbnail">Thumbnail</label><br>
+    <input type="file" name="thumbnail" id="thumbnail" >
+  </div>
+  <div>
+      <textarea name="content" rows="50" cols="70">{{edited_article.content}}</textarea>
+  </div>
+    <input type="submit" value="save changes">
+</form>
+{% else %}
+<h3>Draft</h3>
+<form method="post">
+  <h2>Your Post:</h2>
+  <div>
+    <input type="text" name="name" id="name" placeholder="Name..">
+  </div>
+<div>
+  <div>
+      <input type="text" name="city" id="city" placeholder="City..">
     </div>
-    <div>
-        <textarea name="content" rows="50" cols="70">Tell us your story...</textarea>
-    </div>
+  
+  <div>
+    <textarea type="text" name="title" id="title" rows="1" cols="30" >Title</textarea>
+  </div>
+
+  <div>
+    <label for="thumbnail">Thumbnail</label><br>
+    <input type="file" name="thumbnail" id="thumbnail" >
+  </div>
+  <div>
+      <textarea name="content" rows="50" cols="70">Tell us your story...</textarea>
+  </div>
     <input type="submit" value="Publish">
+</form>
 
-  </form>
-  
+{% endif %}
 
-  
 {% endblock %}
