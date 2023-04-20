@@ -31,25 +31,13 @@ def post_posts():
   
   return render_template('posts/new.html')
 
-#tried adding multiple methods to same form had an issue
-# @blueprint.patch('/posts')
-# def patch_posts(slug):
-#   edited_article = Articles.query.filter_by(slug=slug).first()
-#   edited_article.title = request.form['title']
-#   edited_article.content = request.form['content']
-#   edited_article.thumbnail = request.form['thumbnail']
-#   edited_article.save()
-#   return render_template('posts/new.html')
+
 
 @blueprint.post('/posts/delete')
 def delete_posts():
   id = request.form.get('id')
-  print(id)
-  
   #check if the title is existing
   post = Articles.query.filter_by(id=id).first()
-  print(post)
-  
   post.delete()
   return redirect (url_for('articles.index'))
 
