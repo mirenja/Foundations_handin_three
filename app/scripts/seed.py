@@ -21,13 +21,17 @@ user_info = {
   
 for person,details in user_info.items():
   user = User(fullname=person,email=details['email'],password=generate_password_hash(details['password']))
+  db.session.add(user)
+  db.session.commit()
+  
+  author = Authors(user=user)
+  db.session.add(author)
+  db.session.commit()
 
 for slug, article in article_info.items():
 
 
-  author = Authors(user=user)
-  db.session.add(author)
-  db.session.commit()
+ 
 
   new_article = Articles(slug = slug, title = article['title'] ,thumbnail = article['thumbnail'], content = article['content'], author= author)
   db.session.add(new_article)
