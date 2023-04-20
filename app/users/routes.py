@@ -21,6 +21,7 @@ def post_register():
       raise Exception('Password is too short!')
     
     user = User(
+      fullname = request.form.get('fullname'),
       email = request.form.get('email'),
       password= generate_password_hash(request.form.get('password'))
     )

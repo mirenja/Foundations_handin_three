@@ -5,7 +5,7 @@ def create_post(form_data):
   # post = Articles()
   # post.save
   #get all form data
-  name = form_data.get('name')
+  
   city = form_data.get('city')
   title = form_data.get('title')
   content = form_data.get('content')
