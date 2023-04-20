@@ -2,11 +2,12 @@ from flask import Blueprint, render_template, request,url_for, redirect
 from .services.create_post import create_post
 from .services.update_post import update_post
 from ..articles.models import Articles, Authors
-from app.extensions.database import db
+from flask_login import login_required
 
 blueprint = Blueprint('posts', __name__)
 
 @blueprint.get('/posts')
+@login_required
 def get_posts():
   slug= request.args.get('slug')
   if slug:

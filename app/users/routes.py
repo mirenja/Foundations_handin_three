@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, url_for,redirect
 from app.users.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user
 
 blueprint = Blueprint('users', __name__)
 
@@ -17,7 +18,7 @@ def post_register():
     elif User.query.filter_by(email=request.form.get('email')).first():
       raise Exception('The email address is already registered.')
     elif len(request.form.get('password')) <= 5 :
-      raise Exception('Password is too short')
+      raise Exception('Password is too short!')
     
     user = User(
       email = request.form.get('email'),
@@ -27,7 +28,7 @@ def post_register():
     user.save()
 
 
-
+    login_user(user)
     return redirect(url_for('articles.index'))
   except Exception as error_message:
     error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
@@ -41,7 +42,18 @@ def get_login():
 
 @blueprint.post('/login')
 def post_login():
-  return 'User logged in'
+  try:
+    user = User.query.filter_by(email=request.form.get('email')).first()
+    if not user:
+      raise Exception('No user with that email address was found')
+    elif not check_password_hash(user.password, request.form.get('password')):
+      raise Exception('The password does not appear to be correct.')
+    login_user(user)
+    return redirect(url_for('articles.index'))
+
+  except Exception as error_message:
+    error = error_message or 'An eooro occured while logging in.Please verify your email and password '
+  return render_template ('users/login.html', error=error)
 
 @blueprint.get('/logout')
 def logout():

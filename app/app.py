@@ -1,6 +1,7 @@
 from flask import Flask, redirect,url_for,render_template,send_file
 from . import articles, simple_pages, posts, api, users
 from app.extensions.database import db, migrate
+from app.extensions.authentication import login_manager
 
 def create_app():
     app = Flask(__name__)
@@ -25,6 +26,7 @@ def register_blueprints(app: Flask):
 def register_extensions(app: Flask):
     db.init_app(app) #initilize db connection
     migrate.init_app(app, db, compare_type =  True) #if i change the types in my models within the columns, it will allow us create migration instances for it
+    login_manager.init_app(app)
 
 
 
