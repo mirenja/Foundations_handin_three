@@ -35,6 +35,11 @@
       <textarea name="content" rows="50" cols="70">{{edited_article.content}}</textarea>
   </div>
     <input type="submit" value="save changes">
+   
+</form>
+<form method="post" action="/posts/delete" >
+  <input type="hidden" value="{{edited_article.id}}" name="id">
+  <button type="submit" >DELETE</button>
 </form>
 {% else %}
 <h3>Draft</h3>

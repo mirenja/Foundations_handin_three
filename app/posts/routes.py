@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request,url_for, redirect
 from .services.create_post import create_post
 from .services.update_post import update_post
 from ..articles.models import Articles, Authors
+from app.extensions.database import db
 
 blueprint = Blueprint('posts', __name__)
 
@@ -30,19 +31,26 @@ def post_posts():
   
   return render_template('posts/new.html')
 
-
+#tried adding multiple methods to same form had an issue
 # @blueprint.patch('/posts')
 # def patch_posts(slug):
 #   edited_article = Articles.query.filter_by(slug=slug).first()
 #   edited_article.title = request.form['title']
 #   edited_article.content = request.form['content']
 #   edited_article.thumbnail = request.form['thumbnail']
-
 #   edited_article.save()
-
-
-
-  
 #   return render_template('posts/new.html')
+
+@blueprint.post('/posts/delete')
+def delete_posts():
+  id = request.form.get('id')
+  print(id)
+  
+  #check if the title is existing
+  post = Articles.query.filter_by(id=id).first()
+  print(post)
+  
+  post.delete()
+  return redirect (url_for('articles.index'))
 
 

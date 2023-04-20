@@ -20,9 +20,16 @@
             <h4>{{slug}}:{{articles.title}} </h4>
             <img src="{{ url_for('static', filename=articles.thumbnail) }}">
             <p>{{articles.content}}</p>
-            <button>
-                <a href="{{url_for('posts.post_posts', slug = slug)}}">Edit</a>
-            </button>
+            <div>
+                <button>
+                    <a href="{{url_for('posts.post_posts', slug = slug)}}">Edit</a>
+                </button>
+                <!-- <button>
+                    <a href="{{url_for('posts.delete_posts', slug = slug)}}">Delete</a>
+                </button> -->
+
+            </div>
+           
         </article>
         
     </section>
