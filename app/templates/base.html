@@ -30,6 +30,7 @@
                 <button>Get Started</button>
             </a></li>
 
+
             
         </ul>
     </nav>
@@ -40,4 +41,14 @@
  {%endblock%}
     
 </body>
+
+<footer>
+    <hr>
+    {% if current_user.is_authenticated %}
+      <small>
+        Logged in as {{ current_user.email }}.
+        <a href="{{ url_for('users.logout') }}">Logout</a>
+      </small>
+    {% endif %}
+  </footer>
 </html>
