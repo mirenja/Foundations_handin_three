@@ -21,13 +21,3 @@ function displayCount(){
 
 content.addEventListener("input",displayCount);
 
-
-//   // Get the value of the textarea and split it into an array of words
-//   const words = textInput.value.trim().split(/\s+/);
-  
-//   // Get the number of words in the array
-//   const numWords = words.length;
-  
-//   // Update the word count display
-//   wordCount.textContent = `${numWords} word${numWords === 1 ? "" : "s"}`;
-// });
