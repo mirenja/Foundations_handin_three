@@ -32,7 +32,7 @@
     <input type="file" name="thumbnail" id="thumbnail" >
   </div>
   <div>
-      <textarea name="content" rows="50" cols="70">{{edited_article.content}}</textarea>
+      <textarea name="content" rows="30" cols="70">{{edited_article.content}}</textarea>
   </div>
     <input type="submit" value="save changes">
    
@@ -62,11 +62,14 @@
     <input type="file" name="thumbnail" id="thumbnail" >
   </div>
   <div>
-      <textarea name="content" rows="50" cols="70">Tell us your story...</textarea>
+      <textarea name="content" rows="30" cols="70" id="text_content" placeholder="Tell us your story..."></textarea>
+
   </div>
+    <p id="word-count">0 words</p>
     <input type="submit" value="Publish">
 </form>
 
 {% endif %}
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/main.js') }}"></script>
 
 {% endblock %}
