@@ -2,9 +2,14 @@ from flask import Blueprint, render_template, request,url_for, redirect
 from .services.create_post import create_post
 from .services.update_post import update_post
 from ..articles.models import Articles, Authors
+from ..users.models import User
 from flask_login import login_required
+from flask_cors import CORS, cross_origin
 
 blueprint = Blueprint('posts', __name__)
+
+CORS(blueprint)
+
 
 @blueprint.get('/posts')
 @login_required
