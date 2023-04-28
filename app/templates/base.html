@@ -15,26 +15,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for ('static', filename='css/main.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
 </head>
 {%endblock%}
 <body>
  {%block body%}
  <header>
-    <nav>
-    
-        <ul>
-            <li><a href="{{ url_for('articles.index')}}">Home</a></li>
-            <li><a href="{{ url_for('users.get_login')}}">Login</a></li>
-            <li><a href="{{ url_for('users.get_register')}}">
-                <button>Get Started</button>
-            </a></li>
-
-
-            
-        </ul>
-    </nav>
-
+  <div id="logo" ><img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo" ></div>
+  <ul>
+    <li><a href="{{ url_for('articles.index')}}">Home</a></li>
+    <li><a href="{{ url_for('posts.get_posts') }}">Write</a></li>
+    <li><a href="{{ url_for('users.get_login')}}">Login</a></li>
+    <li><a href="{{ url_for('users.get_register')}}">
+          <button id="Started">Get Started</button>
+      </a></li>  
+  </ul>
 </header>
 
  

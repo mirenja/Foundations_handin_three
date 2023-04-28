@@ -3,6 +3,8 @@
 {% extends 'base.html' %}
 {% block head %}
   {{ super() }}
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/index.css')}}">
+  
   
 {% endblock %}
 
@@ -11,33 +13,19 @@
 {% block body %}
 {{ super() }}
 <main>
-  <div>
-    <h1>Otherwise!!!</h1>
-    <a href="{{ url_for('posts.get_posts') }}">New Article</a>
-
-  </div>
-    
-    <ul id="articles">
-        {% for article in articles_pagination.items %}
-        <li >
-            <h3><a href="{{ url_for('articles.show', slug= article.slug) }}">{{article.slug}}</a></h3>
-             <div>
-              <h4>{{article.title}}</h4>
-
-
-            </div>
-            
-            <img src="{{ url_for('static', filename=article.thumbnail) }}">
-            <p>{{article.content}}</p>
-            
-        </li>
-        
-        
-        {% endfor %}
-
-    </ul>
-
-
+    <div id="articles">
+      {% for article in articles_pagination.items %}
+      <article  article_id="{{article.id}}">
+      <div class="thumbnail">
+        <img src="{{ url_for('static', filename=article.thumbnail) }}">
+        <a href="{{ url_for('articles.show', slug= article.slug) }}"><button class="read">READ MORE</button></a>
+      </div>
+      <h4 class="title">{{article.title}}</h4>
+      <p id="indexParagraph" hidden>{{article.content}}</p> 
+    </article>
+    {% endfor %}
+      
+    </div>
 
 </main>
 <nav>
@@ -55,6 +43,7 @@
   </nav>
  
 {% endblock %}
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/main.js') }}"></script>
 
 
 
