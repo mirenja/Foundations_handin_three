@@ -18,3 +18,8 @@ everyone to read the articles shared however only authors can:
 *Users Model
 *Authors Model
 
+*new articles are added under post
+*existing articles are handled under articles(templates /routes)
+*user managemnt: register and login is under user
+
+
