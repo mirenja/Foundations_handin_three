@@ -1,0 +1,50 @@
+:root{
+    --main-font-color:#001219;
+    --hover-font-color:#CA6702;
+    --nav-background-color:#F7F7F7;
+    --elem-primary-color:white;
+}
+.warning{
+  color: var( --hover-font-color);
+}
+#name {
+  width: 100%;
+  border: none;
+}
+input {
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 50%;
+   
+  }
+  textarea{
+    border: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .post{
+ 
+     background-color: #fff;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+     margin: 20px auto;
+     max-width: 800px;
+     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+      
+  }
+  .button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 

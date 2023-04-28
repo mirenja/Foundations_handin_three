@@ -2,6 +2,7 @@
   --main-font-color:#001219;
   --hover-font-color:#CA6702;
   --nav-background-color:#F7F7F7;
+  --elem-primary-color:white;
 }
 
 header {
@@ -70,9 +71,22 @@ header ul a:active {
 body{
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+ 
 } 
 
+.edit {
+  cursor: pointer;
+  background-color:var( --nav-background-color);
+  border-color: var(--elem-primary-color);
+  text-align: center;
+}
+.edit a{
+  text-decoration: none;
+  color: var( --main-font-color);
+  font-size: 0.85rem;
+
+}
 
 
 

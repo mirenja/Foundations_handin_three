@@ -3,6 +3,7 @@
   {{ super() }}
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/main.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/article.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/post.css')}}">
   
 {% endblock %}
 {% block title %}Articles | Draft{% endblock %}
@@ -11,13 +12,14 @@
 
 {% block body %}
 {{ super() }}
-  
+<div class="post">
 {% if edited_article %}
-<p>The name and city cannot be edited!</p>
+<p class="warning">The name and city cannot be edited!</p>
+
 <form method="post">
   <h2>Your Post:</h2>
   <div>
-    <input type="text" name="name" id="name" placeholder="Name..">
+    <input type="text" name="name" id="name" placeholder="Name.." style="text-align: center;">
   </div>
 <div>
   <div>
@@ -35,31 +37,35 @@
   <div>
       <textarea name="content" rows="30" cols="70">{{edited_article.content}}</textarea>
   </div>
+  <div class="button-container">
     <input type="submit" value="save changes">
+  </div>
    
-</form>
+</form> 
 <form method="post" action="/posts/delete" >
   <input type="hidden" value="{{edited_article.id}}" name="id">
+  <div class="button-container">
   <button type="submit" >DELETE</button>
+</div>
 </form>
+</div>
 {% else %}
+<div clas="post">
+
 <h3>Draft</h3>
-<form method="post">
+<form method="post" >
   <h2>Your Post:</h2>
-  <div>
-    <input type="text" name="name" id="name" value="By {{ current_user.fullname }}" disabled>
-  </div>
+  
 <div>
   <div>
       <input type="text" name="city" id="city" placeholder="City..">
     </div>
   
   <div>
-    <textarea type="text" name="title" id="title" rows="1" cols="30" >Title</textarea>
+    <textarea type="text" name="title" id="title" rows="1" cols="30"  placeholder="Title"></textarea>
   </div>
 
   <div>
-    <label for="thumbnail">Thumbnail</label><br>
     <input type="file" name="thumbnail" id="thumbnail" >
   </div>
   <div>
@@ -67,8 +73,13 @@
 
   </div>
     <p id="word-count">0 words</p>
+    <div>
+      <input type="text" name="name" id="name" value="By {{ current_user.fullname }}" disabled style="font-style: italic;">
+    </div>
     <input type="submit" value="Publish">
 </form>
+</div>
+
 
 {% endif %}
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/main.js') }}"></script>

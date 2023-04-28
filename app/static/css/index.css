@@ -30,13 +30,16 @@
 
 #articles .thumbnail {
   position: relative;
+  max-height: 500px;
 }
 
 #articles .thumbnail img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     
-    max-width: 100%;
-    height: auto;
+    
 }
 #articles .thumbnail .read {
     position: absolute;
@@ -58,20 +61,24 @@
     background-color: var( --main-font-color);
     color: var(--elem-primary-color);
 }
-
+#articles article:first-of-type .thumbnail img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
 #articles article:first-of-type .title{
+    display: inline-block;
+    padding: 10px 20px;
     position: absolute;
     top :50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    color: var(--nav-background-color);
-    padding: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var( --elem-primary-color);
     margin: 0;
     text-align: center;
     white-space: wrap;
-    color: #001219;
-    
+    background-color: #00121980;
 }
 nav {
     display: flex;
@@ -85,8 +92,6 @@ nav {
     #articles {
       grid-template-columns: repeat(3, 1fr);
       grid-gap: 20px;
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       margin: 20px;

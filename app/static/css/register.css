@@ -1,0 +1,23 @@
+:root{
+    --main-font-color:#001219;
+    --hover-font-color:#CA6702;
+    --nav-background-color:#F7F7F7;
+    --elem-primary-color:white;
+}
+
+.card{
+ 
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+     
+ }
+ .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+  }

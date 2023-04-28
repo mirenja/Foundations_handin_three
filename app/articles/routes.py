@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template,redirect,url_for,send_file,request,current_app
-from .models import Articles
+from .models import Articles,Authors
 
 blueprint = Blueprint('articles', __name__)
 
@@ -20,8 +20,10 @@ def index():
 
 @blueprint.route('/<slug>')
 def show(slug): 
+  
   final_article = Articles.query.filter_by(slug=slug).first()
-  return render_template('articles/show.html', articles=final_article, slug=slug)
+  author_name = final_article.author.user.fullname
+  return render_template('articles/show.html', articles=final_article, slug=slug,author= author_name)
 
 
 # the article function is a view function in the Articles blueprint,

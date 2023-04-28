@@ -2,6 +2,8 @@
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/article.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/index.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/show.css')}}">
   
 
   
@@ -12,16 +14,14 @@
 {% block body %}
 {{ super() }}
 <main>
-    <h1>Otherwise!!!</h1>
-    
-
-    <section id="articles">
-        <article>
+   <section id="articles">
+        <article id="show">
             <h4>{{slug}}:{{articles.title}} </h4>
             <img src="{{ url_for('static', filename=articles.thumbnail) }}">
             <p>{{articles.content}}</p>
+            <p style="font-style: italic;">By {{author}}</p>
             <div>
-                <button>
+                <button class="edit">
                     <a href="{{url_for('posts.post_posts', slug = slug)}}">Edit</a>
                 </button>
                 <!-- <button>

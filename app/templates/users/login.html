@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/login.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/main.css')}}">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/register.css')}}">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
 {% endblock %}
@@ -14,23 +15,26 @@
 
 {% block body %}
 {{ super() }}
-  <h1>Login</h1>
+ <div class="card">
   {% if error%}
   <p style="color: tomato;">{{error}}</p>
   {% endif %}
-
+  
+  <h1>Login</h1>
   <form method="POST">
  
-    <div>
+    <div class="form-group">
       <label for="email">Email</label>
       <input type="email" name="email" id="email" required>
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="password">Password</label>
       <input type="password" name="password" id="password" required>
     </div>
     
     <input type="submit" value="Login">
   </form>  
+  
 {% endblock %}
+</div>
