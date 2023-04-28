@@ -1,4 +1,4 @@
-#Msafiri
+#Journals
 
 ###description
 Its a travel journal that allows people to share their experiences as they go through the world.
@@ -9,11 +9,12 @@ everyone to read the articles shared however only authors can:
 
 ###my Tech stack
 *Backend: Python Flask
-*Database: SQLite
+*Database: Postgres
 *ORM: SQLAlchemy
 *Frontend: JavaScript, HTML, CSS
 
 ###My models
 *Article Model
 *Users Model
+*Authors Model
 
