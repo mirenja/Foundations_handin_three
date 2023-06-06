@@ -25,6 +25,6 @@ everyone can read the articles shared however only authors can:
 
 ###User Guide.
 *visit the site on : https://journals.onrender.com/
-*Browse to view existing articles.
-*For a new user , click on get started, register details.
+*Browse to view existing articles.you need to have a registered an account to create or modify an article
+*user managemnt: register and login  and account deletion and verification is under user,
 

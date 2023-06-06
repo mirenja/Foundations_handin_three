@@ -34,7 +34,13 @@
     </div>
     
     <input type="submit" value="Login">
-  </form>  
+  </form> 
+  <form method="post" action="/register/delete" >
+    <input type="hidden" value="{{current_user.email}}" name="email">
+    <div class="button-container">
+    <button type="submit" >DELETE ACCOUNT</button>
+  </div>
+  </form> 
   
 {% endblock %}
 </div>
