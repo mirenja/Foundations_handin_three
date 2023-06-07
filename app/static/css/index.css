@@ -25,6 +25,7 @@
     justify-content: space-between;
     background-color: #f5f5f5;
     border-radius: 10px;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -62,8 +63,8 @@
     color: var(--elem-primary-color);
 }
 #articles article:first-of-type .thumbnail img {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
     object-fit: cover;
   }
   
@@ -80,6 +81,19 @@
     white-space: wrap;
     background-color: #00121980;
 }
+.titleContent{
+  height: 100%;
+  object-fit: cover;
+  padding: 1rem;
+
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 nav {
     display: flex;
     justify-content: center;

@@ -20,8 +20,10 @@
         <img src="{{ url_for('static', filename=article.thumbnail) }}">
         <a href="{{ url_for('articles.show', slug= article.slug) }}"><button class="read">READ MORE</button></a>
       </div>
+      <div class="titleContent">
       <h4 class="title">{{article.title}}</h4>
       <p id="indexParagraph" hidden>{{article.content}}</p> 
+      </div>
     </article>
     {% endfor %}
       
